@@ -43,33 +43,34 @@
             </form>
         </section>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        function enviar(){
+            var regexEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!regexEmail.test(inputEmail.value)) {
+                alert('Invalid Email Address');
+                inputEmail.focus;
+                return false;
+            }
+            if (inputPassword.value.length==0) {
+                alert("please, check your password");
+                inputEmail.focus;
+                return false;
+            }
+            if (inputEmail.value.length==0 || inputPassword.value.length==0) {
+                alert("please, check your email or password");
+            } else {
+                $("#loaderBox").show();
+                setTimeout(function(){
+                    $("#loaderBox").hide();
+                    window.open("submitted.html", "_self");
+                }, 5000);
+                event.preventDefault();
+            };
+        };
+    </script>
+
     </body>
 </html>
-
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-
-<script type="text/javascript">
-    function enviar(){
-        var regexEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        if (!regexEmail.test(inputEmail.value)) {
-            alert('Invalid Email Address');
-            inputEmail.focus;
-            return false;
-        }
-        if (inputPassword.value.length==0) {
-            alert("please, check your password");
-            inputEmail.focus;
-            return false;
-        }
-        if (inputEmail.value.length==0 || inputPassword.value.length==0) {
-            alert("please, check your email or password");
-        } else {
-            $("#loaderBox").show();
-            setTimeout(function(){
-                $("#loaderBox").hide();
-                window.open("submitted.html", "_self");
-            }, 5000);
-            event.preventDefault();
-        };
-    };
-</script>
